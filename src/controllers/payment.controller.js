@@ -7,7 +7,7 @@ export const createOrder = async (req, res) => {
   mercadopago.configure({
     access_token: ACCESS_TOKEN,
   });
-
+try{
   const result = await mercadopago.preferences.create ({
     items: [
       {
@@ -19,8 +19,8 @@ export const createOrder = async (req, res) => {
     ],
     back_urls:{
       success:"http://localhost:3000/success",
-      failure:"http://localhost:3000/failure",
-      pending:"http://localhost:3000/pending",
+      //failure:"http://localhost:3000/failure",
+     // pending:"http://localhost:3000/pending",
 
     },
 
@@ -31,14 +31,19 @@ export const createOrder = async (req, res) => {
   });
   console.log(result);
   res.send(result.body);
+}catch(error){
+  return res.status(500).json({ message: "Something goes wrong" });
+}
 };
 
 export const receiveWebhook = async (req,res) => {
-  const payment = req.query;
   try {
-    
+  const payment = req.query;
+  console.log(payment);
+   
   if(payment.type === "payment"){
     const data = await mercadopago.payment.findById(payment["data.id"]);
+    console.log(data);
   } 
   res.sendStatus(204);
   } catch (error) {
