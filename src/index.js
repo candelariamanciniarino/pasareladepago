@@ -6,10 +6,14 @@ import path from 'path';
 
 const app = express()
 
+const port =process.env.PORT || 3000
+
 app.use(morgan('dev'))
 
 app.use(paymentRoutes);
 app.use(express.static(path.resolve("src/public")));
 
-app.listen(PORT)
-console.log('Server on port',PORT)
+app.listen(port,()=>{
+    console.log(`port runing in http://localhost:${port}`)
+})
+/* console.log('Server on port',PORT) */
