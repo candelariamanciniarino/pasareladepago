@@ -14,6 +14,5 @@ app.use(paymentRoutes);
 app.use(express.static(path.resolve("src/public")));
 
 app.listen(port,()=>{
-    console.log(`port runing in http://localhost:${port}`)
+  console.log(`Server on port,${PORT}`)
 })
-/* console.log('Server on port',PORT) */
