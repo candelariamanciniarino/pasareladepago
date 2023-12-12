@@ -49,7 +49,7 @@ export const createOrder = async (req, res) => {
       notification_url:"https://4f39-2800-40-37-472-9d0a-cba4-da0a-7b.ngrok.io/webhook",
     });
     
-    window.location.href = result.init_point
+    location.href = result.init_point
     
 
   }catch(error){
