@@ -13,11 +13,16 @@
 
       checkoutButton.addEventListener("click", async () => {
         const res = await fetch("/create-order", {
-          method: "POST",
-          body: {hola:'hola'}
+          method: 'post',
+          mode: 'cors',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ "user": {
+      "email" : 'email',
+      "password" : 'password'
+    }})
         });
-        const data = await res.json();
-        window.location.href = data.init_point;
+        // const data = await res.json();
+        // window.location.href = data.init_point;
       });
     </script>
   </body>

@@ -1,6 +1,6 @@
 import  express  from "express";
 import morgan from 'morgan';
-import paymentRoutes from './routes/payment.routes.js'
+import router from './routes/payment.routes.js'
 import { PORT } from "./config.js";
 import path from 'path';
 
@@ -10,7 +10,7 @@ const port =process.env.PORT || 3000
 
 app.use(morgan('dev'))
 
-app.use(paymentRoutes);
+app.use(router);
 app.use(express.static(path.resolve("src/public")));
 
 app.listen(port,()=>{
