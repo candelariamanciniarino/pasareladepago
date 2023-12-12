@@ -48,10 +48,7 @@ export const createOrder = async (req, res) => {
       },
       notification_url:"https://4f39-2800-40-37-472-9d0a-cba4-da0a-7b.ngrok.io/webhook",
     });
-    const location = window.location;
-    console.log(location.href); 
-    location.href = result.init_point
-    
+    return res.redirect(result.init_point);    
 
   }catch(error){
         return res.status(500).json({ message: "Something goes wrong: " + error.message });
