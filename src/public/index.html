@@ -14,6 +14,7 @@
       checkoutButton.addEventListener("click", async () => {
         const res = await fetch("/create-order", {
           method: "POST",
+          body: {hola:'hola'}
         });
         const data = await res.json();
         window.location.href = data.init_point;
