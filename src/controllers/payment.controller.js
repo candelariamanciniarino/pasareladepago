@@ -33,7 +33,7 @@ export const createOrder = async (req, res) => {
     const carr = datosUsuario.carrito
     
     carr.map((prod) =>
-        items.find((x) => x.name === prod.nombre)
+        items.find((x) => x.title === prod.nombre)
           ? null
           : items=[...items,{title:prod.nombre, quantity: contarProducto(prod,carr),unit_price:prod.precio,currency_id: "ARS",
         }]
