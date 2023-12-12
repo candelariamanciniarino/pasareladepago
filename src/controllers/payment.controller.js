@@ -7,12 +7,12 @@ export const createOrder = async (req, res) => {
   mercadopago.configure({
     access_token: ACCESS_TOKEN,
   });
-  const items = req.body.items;
+  const items = req.body;
   console.log(items)
 try{
   const result = await mercadopago.preferences.create ({
     
-    items,
+    // items,
     back_urls:{
       success:"http://localhost:3000/success",
       //failure:"http://localhost:3000/failure",
