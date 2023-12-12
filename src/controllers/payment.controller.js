@@ -3,12 +3,12 @@ import { ACCESS_TOKEN } from '../config.js';
 
 
 export const createOrder = async (req, res) => {
+  const items = req.body
+  console.log(items)
   // Inicializa MercadoPago con tu token de acceso
   mercadopago.configure({
     access_token: ACCESS_TOKEN,
   });
-  const items = req.body;
-  console.log(items)
 try{
   const result = await mercadopago.preferences.create ({
     
