@@ -32,10 +32,10 @@ export const createOrder = async (req, res) => {
     const datosUsuario = await userSnap.data();
     const carr = datosUsuario.carrito
     
-    carr.map((prod) =>
+    carr.map((prod,i) =>
         items.find((x) => x.title === prod.nombre)
           ? null
-          : items=[...items,{title:prod.nombre, quantity: contarProducto(prod,carr),unit_price:prod.precio,currency_id: "ARS",
+          : items=[...items,{id:i,title:prod.nombre, quantity: contarProducto(prod,carr),unit_price:prod.precio,currency_id: "ARS",
         }]
       )
     const result = await mercadopago.preferences.create ({
