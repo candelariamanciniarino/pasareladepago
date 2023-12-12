@@ -12,14 +12,9 @@
       const checkoutButton = document.getElementById("checkout");
 
       checkoutButton.addEventListener("click", async () => {
-        const res = await fetch("/create-order", {
+        const res = await fetch("/create-order?id=l8dEPL7bDcS5WL7mnBf0KZZS4LR2", {
           method: 'post',
-          mode: 'cors',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ "user": {
-      "email" : 'email',
-      "password" : 'password'
-    }})
+
         });
         // const data = await res.json();
         // window.location.href = data.init_point;
