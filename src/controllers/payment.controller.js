@@ -8,6 +8,7 @@ export const createOrder = async (req, res) => {
     access_token: ACCESS_TOKEN,
   });
   const items = req.body.items;
+  console.log(items)
 try{
   const result = await mercadopago.preferences.create ({
     
