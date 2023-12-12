@@ -13,11 +13,11 @@
 
       checkoutButton.addEventListener("click", async () => {
         const res = await fetch("/create-order?id=l8dEPL7bDcS5WL7mnBf0KZZS4LR2", {
-          method: 'post',
+          method: 'POST',
 
         });
-        // const data = await res.json();
-        // window.location.href = data.init_point;
+        const data = await res.json();
+        window.location.href = data.init_point;
       });
     </script>
   </body>
