@@ -39,7 +39,14 @@ export const createOrder = async (req, res) => {
         }]
       )
     const result = await mercadopago.preferences.create ({
-      items,
+      items: [
+        {
+          title: "Laptop lenovo",
+          unit_price: 10,
+          currency_id: "ARS",
+          quantity: 1, 
+        }
+      ],
       back_urls:{
         success:"http://localhost:3000/success",
         //failure:"http://localhost:3000/failure",
