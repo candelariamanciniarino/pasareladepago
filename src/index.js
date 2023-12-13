@@ -11,7 +11,8 @@ const app = express()
 
 const port =process.env.PORT || 3000
 app.use(cors({
-  origin: 'https://nautica-rios-pf-deploy.netlify.app'
+  // origin: 'https://nautica-rios-pf-deploy.netlify.app'
+  origin: '*'
 }))
 app.use(morgan('dev'))
 
