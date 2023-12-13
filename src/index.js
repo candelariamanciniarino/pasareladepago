@@ -3,11 +3,16 @@ import morgan from 'morgan';
 import router from './routes/payment.routes.js'
 import { PORT } from "./config.js";
 import path from 'path';
+import cors from 'cors';
+
+
 
 const app = express()
 
 const port =process.env.PORT || 3000
-
+app.use(cors({
+  origin: 'https://main--nautica-rios-pf-deploy.netlify.app'
+}))
 app.use(morgan('dev'))
 
 app.use(router);
