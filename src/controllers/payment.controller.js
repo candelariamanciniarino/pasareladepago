@@ -41,8 +41,8 @@ export const createOrder = async (req, res) => {
     const result = await mercadopago.preferences.create ({
       items,
       back_urls:{
-        success:"https://nautica-rios-pf-deploy.netlify.app/accesorios",
-        //failure:"http://localhost:3000/failure",
+        success:`https://nautica-rios-pf-deploy.netlify.app/success/${uid}`,
+        failure:"https://nautica-rios-pf-deploy.netlify.app/fail",
       // pending:"http://localhost:3000/pending",
 
       },
